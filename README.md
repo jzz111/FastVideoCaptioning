@@ -1,5 +1,5 @@
 # Fast Video Captioning
-This is a code base to demonstrate using AI to generate an automatic way to caption videos for content creators.
+This is a code base to demonstrate using AI to generate an automatic way to caption videos for content creators. As the creator behind "Vibe Gardening: Informed Edition", a gardening channel on YouTube, I have a constant need of captioning my videos. The current workflow offered in kdenlive for captioning my video creates a large overhead in my publishing process. This app will both serve as a tool to help teach responsible AI use as well as solving a pain point in my operations.
 
 ## Tool Usage
 ### Input:

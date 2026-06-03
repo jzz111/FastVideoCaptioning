@@ -1,90 +1,63 @@
-# Repository Instructions
+# AI Context
 
-## Project Purpose
+## Project
 
-Fast Video Captioning demonstrates using AI to generate captions for videos while keeping human ownership over the output and the development process.
+Fast Video Captioning is a caption-generation project for content creators. The product should turn source video or audio into clean captions that can be reviewed, corrected, and reused for future captioning improvements.
 
-The application workflow centers on:
+## Core Inputs
 
-- Accepting a video or audio file.
-- Using clip start and end timestamps.
-- Optionally applying channel-specific vocabulary.
-- Producing clean `.txt` captions.
-- Producing a human review file.
-- Maintaining correction memory.
+The system should support:
 
-## Product Capabilities
+- A video or audio file.
+- Clip start and end timestamps.
+- Optional channel-specific vocabulary for names, phrases, jargon, or recurring terms.
 
-The finished product must be able to download captioning models needed for transcription and caption generation.
+## Core Outputs
 
-Current supported model options are:
+The system should produce:
 
-- OpenAI Whisper Large-v3 as the default model.
-- OpenAI Distil-Whisper as an alternate model.
+- Clean `.txt` captions.
+- A human review file for checking and correcting generated captions.
+- Correction memory that can improve future captioning runs.
 
-## Development Principles
+## Captioning Models
 
-Human ownership is required for all AI-generated work. Treat AI as a tool that can accelerate implementation, but the developer is responsible for reviewing, refining, testing, and owning every requirement, plan, and line of code.
+The finished product must be able to download captioning models required for transcription and caption generation.
 
-Prefer a requirements-and-tests-first workflow:
+Current model options:
 
-1. Maintain repository context in this `AGENTS.md` file.
-2. Write or update requirement specifications before feature work.
-3. Design tests from the requirements before implementation when the work is a feature or larger.
-4. Use Plan Mode for code generation on meaningful changes.
-5. Add automated verification scripts or tests so manual checks are not the only safety net.
+- OpenAI Whisper Large-v3 is the default captioning model.
+- OpenAI Distil-Whisper is the alternate captioning model.
 
-## Workflow Levels
+When implementing model selection or downloads, keep the default explicit and make alternate models configurable.
 
-For simple bug fixes:
+## Product Behavior
 
-- Use this context file.
-- Implement the fix.
-- Run or add automated verification.
+Preserve human review as a first-class part of the workflow. Generated captions should be auditable and easy to correct.
 
-For features:
+Correction memory should be treated as project data that helps future runs, not as an opaque side effect.
 
-- Use this context file.
-- Define requirements and acceptance criteria.
-- Create or update tests first.
-- Implement through a reviewed plan.
-- Run automated verification.
-
-For major features:
-
-- Use the complete workflow: context, requirements, tests, planned implementation, and automated verification.
-
-## Requirements Guidance
-
-Feature requirements should include acceptance criteria. Gherkin is acceptable when useful, but plain language is fine if the success conditions are precise and testable.
-
-Requirements should come from, or at minimum be reviewed by, the Product Owner or Product Manager.
-
-## Testing Guidance
-
-Tests are safeguards around AI-assisted development. For feature work, design tests from the acceptance criteria before implementation.
-
-Unit tests created for feature behavior should be peer reviewed so the team owns the expected behavior, not just the generated implementation.
-
-When adding automated testing tools, prefer repeatable scripts that create technical equity over one-time manual test steps.
+Caption output should favor clarity and usability for content creators over clever formatting.
 
 ## Implementation Guidance
 
 Before changing code:
 
-- Read the relevant requirements, README, and existing code.
+- Read the README and relevant source files.
 - Keep changes scoped to the requested behavior.
-- Prefer existing project patterns over new abstractions.
+- Prefer existing project patterns once they exist.
 - Avoid unrelated refactors.
 
 During implementation:
 
-- Make the smallest coherent change that satisfies the requirements.
-- Keep generated captions, review outputs, and correction memory behavior understandable and auditable.
-- Preserve human review as a first-class part of the captioning workflow.
+- Make model download behavior deterministic and testable.
+- Keep file paths, generated outputs, and model configuration explicit.
+- Handle missing files, invalid timestamps, unavailable models, and failed downloads with clear errors.
+- Do not silently discard generated captions, review data, or correction memory.
 
 Before finishing:
 
-- Run the relevant tests or verification scripts.
+- Run relevant tests or verification scripts.
 - Report what changed and what was verified.
-- Clearly state any tests that could not be run.
+- State any verification that could not be run.
+
