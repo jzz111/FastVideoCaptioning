@@ -1,4 +1,24 @@
 # Fast Video Captioning
+
+## Table of Contents
+- [Fast Video Captioning](#fast-video-captioning)
+  - [Table of Contents](#table-of-contents)
+  - [What this is](#what-this-is)
+  - [Tool Usage](#tool-usage)
+    - [Input:](#input)
+    - [Output:](#output)
+  - [Directory Structure](#directory-structure)
+  - [Demonstrated Workflow](#demonstrated-workflow)
+    - [Overview](#overview)
+      - [Steps in the process](#steps-in-the-process)
+      - [Levels of operation](#levels-of-operation)
+    - [1. AGENT.md](#1-agentmd)
+    - [2. Requirement Specification](#2-requirement-specification)
+    - [3. Design Unit Tests](#3-design-unit-tests)
+    - [4. Generate code in Plan Mode](#4-generate-code-in-plan-mode)
+    - [5. Generate Automated Testing Tools](#5-generate-automated-testing-tools)
+
+## What this is
 This is a code base to demonstrate using AI to generate an automatic way to caption videos for content creators. As the creator behind "Vibe Gardening: Informed Edition", a gardening channel on YouTube, I have a constant need of captioning my videos. The current workflow offered in kdenlive for captioning my video creates a large overhead in my publishing process. This app will both serve as a tool to help teach responsible AI use as well as solving a pain point in my operations.
 
 ## Tool Usage
@@ -11,6 +31,28 @@ This is a code base to demonstrate using AI to generate an automatic way to capt
 - Clean .txt captions
 - Human review file
 - Correction memory
+
+## Directory Structure
+```text
+FastVideoCaptioning/
+|-- AGENTS.md
+|-- LICENSE
+|-- README.md
+`-- requirements/
+    |-- product-level requirement docs
+    `-- mvp/
+        |-- MVP roadmap
+        `-- epics/
+            `-- MVP epic requirement docs
+```
+
+The `requirements` directory is where the product intent is translated into implementation-ready work.
+
+| Path | Description | What it looks like |
+| --- | --- | --- |
+| `requirements/` | Product requirement docs that describe the users, product vision, and expected workflow. | Short Markdown files with headings, numbered workflow steps, and bullet lists. |
+| `requirements/mvp/` | MVP planning docs that narrow the product into the first shippable workflow. | A roadmap with the MVP workflow, epic list, and future feature ideas. |
+| `requirements/mvp/epics/` | Detailed MVP epic requirements for application interface, media processing, and caption generation. | Markdown files organized by epic, feature, story, description, and acceptance criteria. |
 
 ## Demonstrated Workflow
 ### Overview
