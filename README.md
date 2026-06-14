@@ -12,7 +12,7 @@
     - [Overview](#overview)
       - [Steps in the process](#steps-in-the-process)
       - [Levels of operation](#levels-of-operation)
-    - [1. AGENT.md](#1-agentmd)
+    - [1. AGENTS.md](#1-agentsmd)
     - [2. Requirement Specification](#2-requirement-specification)
     - [3. Design Unit Tests](#3-design-unit-tests)
     - [4. Generate code in Plan Mode](#4-generate-code-in-plan-mode)
@@ -38,28 +38,24 @@ FastVideoCaptioning/
 |-- AGENTS.md
 |-- LICENSE
 |-- README.md
+|-- architecture/
+|   `-- architecture decisions and technical guidance
 `-- requirements/
-    |-- product-level requirement docs
-    `-- mvp/
-        |-- MVP roadmap
-        `-- epics/
-            `-- MVP epic requirement docs
+    `-- product requirement docs
 ```
-
-The `requirements` directory is where the product intent is translated into implementation-ready work.
 
 | Path | Description | What it looks like |
 | --- | --- | --- |
 | `requirements/` | Product requirement docs that describe the users, product vision, and expected workflow. | Short Markdown files with headings, numbered workflow steps, and bullet lists. |
-| `requirements/mvp/` | MVP planning docs that narrow the product into the first shippable workflow. | A roadmap with the MVP workflow, epic list, and future feature ideas. |
-| `requirements/mvp/epics/` | Detailed MVP epic requirements for application interface, media processing, and caption generation. | Markdown files organized by epic, feature, story, description, and acceptance criteria. |
+| `architecture/` | Technical guidance and Architecture Decision Records that explain important implementation choices. | Markdown files describing decisions, consequences, and project conventions. |
+
 
 ## Demonstrated Workflow
 ### Overview
 As the human behind AI operations, you must own what the AI generates. This workflow brings ownership back to humans for what the AI produces. It also gives humans the control they need to own every step of the development
 
 #### Steps in the process
-1. AGENT.md construction for AI context
+1. AGENTS.md construction for AI context
 2. Requirement specification
 3. Design TDD style unit tests using the requirements
 4. Generate code using Plan Mode
@@ -73,7 +69,7 @@ As the human behind AI operations, you must own what the AI generates. This work
 3. Major Features:
    - All Steps
 
-### 1. AGENT.md
+### 1. AGENTS.md
 This is the pillar of AI development to give the AI context of how you want this workspace/project to behave.
 
 ### 2. Requirement Specification
