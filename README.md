@@ -39,9 +39,9 @@ FastVideoCaptioning/
 |-- LICENSE
 |-- README.md
 |-- architecture/
-|   `-- architecture decisions and technical guidance
-`-- requirements/
-    `-- product requirement docs
+|   |-- architecture decisions and technical guidance
+|-- requirements/
+    |-- product requirement docs
 ```
 
 | Path | Description | What it looks like |
