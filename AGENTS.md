@@ -70,10 +70,22 @@ Maintainability expectations:
 Architecture expectations:
 
 - The MVP uses a pragmatic hexagonal architecture vocabulary: `cli`, `application`, `domain`, `ports`, and `adapters`.
+- Because this repository contains one application, prefer top-level source directories under `src/` such as `src/cli`, `src/application`, `src/domain`, `src/ports`, and `src/adapters` instead of nesting everything under an application-name package.
 - Keep core application workflow code separate from infrastructure concerns such as CLI parsing, local files, model downloads, and Whisper-specific transcription code.
 - Treat ports as the interfaces or protocols the application depends on, and adapters as concrete implementations connected to external systems.
 - Prefer simple dependency injection through constructors or function parameters over a dependency injection container unless the project grows enough to justify one.
 - Treat `architecture/` as product-specific design guidance and decisions, not as a rigid coding standards manual.
+
+Contract-first TDD expectations:
+
+- For new requirement work, start by understanding the whole epic and write or update a human-readable epic-level contract under `requirements/` before implementation. Stories in the same epic often share one public surface and should be considered together before story-level tests begin.
+- After the requirement contract is clear, create the smallest source contract surface in `src/` that tests can import. Use real module names, function or class signatures, and explicit placeholder behavior such as `raise NotImplementedError`.
+- Then write TDD-style unit tests under `tests/unit/` against that source contract surface, using story references such as `0.1.1` for focused red-green cycles. The first red phase should preferably fail because behavior is not implemented, not because imports or modules are missing.
+- The red phase is a required human checkpoint. After creating stubs and failing tests, run the relevant tests, report the expected failing result, and stop. Do not replace `NotImplementedError` or implement production behavior until the human explicitly approves moving to the green phase.
+- If the human says "execute the plan" for contract-first TDD work, treat that as permission to create or update the contract, source stubs, and failing tests only. It is not permission to implement the green phase unless they explicitly say to implement behavior or make the tests pass.
+- If production behavior is accidentally implemented before the red checkpoint, stop as soon as the issue is noticed and ask whether to keep the implementation, revert to stubs, or continue from the current state.
+- After the human approves the green phase, implement only enough production code to satisfy the current contract and tests, one story or narrow behavior at a time.
+- Keep contract tests focused on observable behavior, validation, workflow dispatch, and clear errors. Avoid real model downloads, real transcription, or production file writes in unit tests.
 
 Tech stack expectations:
 

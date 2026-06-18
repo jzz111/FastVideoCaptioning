@@ -12,11 +12,11 @@
     - [Overview](#overview)
       - [Steps in the process](#steps-in-the-process)
       - [Levels of operation](#levels-of-operation)
-    - [1. AGENTS.md](#1-agentsmd)
-    - [2. Requirement Specification](#2-requirement-specification)
-    - [3. Design Unit Tests](#3-design-unit-tests)
+    - [1. Construct AI Context](#1-construct-ai-context)
+    - [2. Product Specification](#2-product-specification)
+    - [3. Contract First TDD](#3-contract-first-tdd)
     - [4. Generate code in Plan Mode](#4-generate-code-in-plan-mode)
-    - [5. Generate Automated Testing Tools](#5-generate-automated-testing-tools)
+    - [5. Generate Automated Verification Tools](#5-generate-automated-verification-tools)
 
 ## What this is
 This is a code base to demonstrate using AI to generate an automatic way to caption videos for content creators. As the creator behind "Vibe Gardening: Informed Edition", a gardening channel on YouTube, I have a constant need of captioning my videos. The current workflow offered in kdenlive for captioning my video creates a large overhead in my publishing process. This app will both serve as a tool to help teach responsible AI use as well as solving a pain point in my operations.
@@ -55,8 +55,8 @@ FastVideoCaptioning/
 As the human behind AI operations, you must own what the AI generates. This workflow brings ownership back to humans for what the AI produces. It also gives humans the control they need to own every step of the development
 
 #### Steps in the process
-1. AGENTS.md construction for AI context
-2. Requirement specification
+1. Construction for AI context
+2. Product specification
 3. Design TDD style unit tests using the requirements
 4. Generate code using Plan Mode
 5. Generate additional verification using automated testing scripts
@@ -69,17 +69,24 @@ As the human behind AI operations, you must own what the AI generates. This work
 3. Major Features:
    - All Steps
 
-### 1. AGENTS.md
-This is the pillar of AI development to give the AI context of how you want this workspace/project to behave.
+### 1. Construct AI Context
+1. AGENTS.md
+   - This is the pillar of AI development to give the AI context of how you want this workspace/project to behave.
+2. `architecture/`
+   - Defines the software architectural patterns, decisions, etc. to guide the AI in writing proper code.
 
-### 2. Requirement Specification
-You will need to specify the requirements that this feature/application must meet to be considered a success. This can be written in styles like Gherkin or other languages. Acceptance Criterias are a must as they drive the TDD step. This needs to be from the Product Owner or Product Manager, at least reviewed by.
+### 2. Product Specification
+1. `requirements/`
+   - You will need to specify the requirements that this feature/application must meet to be considered a success. This can be written in styles like Gherkin or other languages. Acceptance Criterias are a must as they drive the TDD step. This needs to be from the Product Owner or Product Manager, at least reviewed by.
 
-### 3. Design Unit Tests
+### 3. Contract First TDD
 Due to AI's role as a tool, it must be constrained using safeguards. TDD is the best approach to develop such safeguards. These unit tests developed MUST be Peer Reviewed (PRed) by the team to ensure team ownership.
+   1. Define a contract in human readable form as *.md file
+   2. Define minimal code to define contracts. Let each method/interface throw something like `NotImplementedException`.
+   3. Write failing unit tests connected to actual code interfaces.
 
 ### 4. Generate code in Plan Mode
 The developer must read every word the AI generates in the Plan of how it will implement ... the developer must remember that every line of the code generated will be owned by them. The plan must be refined until the developer deems it a success.
 
-### 5. Generate Automated Testing Tools
-The developer/team will also generate scripts to automate the testing of the code developed by Step 4. Manual testing works but it will have to be redone. We must automate testing so we can gain technical equity from what we do.
+### 5. Generate Automated Verification Tools
+The developer/team will also generate scripts to automate the verification of the code developed by Step 4. Manual verification works but it will have to be redone. We must automate verification so we can gain technical equity from what we do.
